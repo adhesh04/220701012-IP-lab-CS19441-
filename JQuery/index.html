@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabet Bubble Game</title>
+  <style>
+    /* Add some basic styling to our bubbles */
+    .bubble {
+      position: absolute;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!-- We'll generate our bubbles dynamically using jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Get the screen dimensions, subtracting 100px and 200px for browser borders
+      var width = screen.width - 100;
+      var height = screen.height - 200;
+
+      // Function to generate a random alphabet character
+      function getRandomAlphabet() {
+        var keyCode = Math.floor(Math.random() * (90 - 65 + 1)) + 65;
+        return String.fromCharCode(keyCode);
+      }
+
+      // Function to generate a random color
+      function getRandomColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+
+      // Function to create a new bubble
+      function createBubble() {
+        var alphabet = getRandomAlphabet();
+        var color = getRandomColor();
+        var bubble = $(`<div class="bubble">${alphabet}</div>`);
+        bubble.css({
+          left: Math.random() * width,
+          top: Math.random() * height,
+          backgroundColor: color
+        });
+        $('body').append(bubble);
+      }
+
+      // Create a new bubble every second
+      setInterval(createBubble, 1000);
+
+      // Listen for key presses
+      $(document).keydown(function(event) {
+        // Check if the pressed key is an alphabet key (A-Z)
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+          // Get the corresponding alphabet character
+          var alphabet = String.fromCharCode(event.keyCode);
+          console.log(`You pressed ${alphabet}!`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
