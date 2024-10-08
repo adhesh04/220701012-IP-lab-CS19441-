@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Bites</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Include Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
+</head>
+<body>
+  <h1>Healthy Bites</h1>
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <p class="phone-info"><i class="fas fa-phone-alt"></i> Call 98393939</p>
+
+  <!-- Section for the iframe -->
+  <section id="home">
+    <iframe src="https://en.wikipedia.org/wiki/Nutrition" title="Wikipedia Nutrition Page" width="100%" height="600px" style="border:none;"></iframe>
+  </section>
+
+  <!-- Section for the details element -->
+  <section>
+    <details>
+      <summary>Importance of Nutrition</summary>
+      <ul>
+        <li><a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank">World Health Organization: Healthy Diet</a></li>
+        <li><a href="https://www.nutrition.org.uk/healthyliving/healthydiet.html" target="_blank">British Nutrition Foundation: Healthy Diet</a></li>
+        <li><a href="https://www.eatright.org/health/wellness/healthy-eating/why-is-good-nutrition-important" target="_blank">Eat Right: Why Good Nutrition is Important</a></li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- Canvas for drawing an envelope diagram -->
+  <section>
+    <h2>Drawing with Canvas</h2>
+    <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas>
+    <p class="canvas-text">Don't overlook your health</p>
+    <script>
+      // JavaScript to draw an envelope diagram on canvas
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Draw the rectangle (envelope body)
+      ctx.strokeStyle = '#FF5733'; // Color of the rectangle
+      ctx.lineWidth = 2; // Line width of the rectangle
+      ctx.strokeRect(50, 50, 200, 100); // Draws the rectangle
+
+      // Draw the 'X' inside the rectangle
+      ctx.beginPath();
+      ctx.moveTo(50, 50); // Starting point of the first diagonal line
+      ctx.lineTo(250, 150); // Ending point of the first diagonal line
+      ctx.moveTo(250, 50); // Starting point of the second diagonal line
+      ctx.lineTo(50, 150); // Ending point of the second diagonal line
+      ctx.stroke(); // Draws the lines
+    </script>
+  </section>
+
+  <!-- SVG for drawing a circle -->
+  <section>
+    <h2>Drawing with SVG</h2>
+    <svg width="200" height="200">
+      <circle cx="100" cy="100" r="80" stroke="black" stroke-width="3" fill="red" />
+    </svg>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Healthy Bites. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
